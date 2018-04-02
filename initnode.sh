@@ -3,11 +3,20 @@
 # Initialize the nodes chain data using the genesis file
 
 ENODE_NAME=$1
-DATA_ROOT=${CHAINDATA_ROOT:-"$(pwd)/data-$ENODE_NAME"}
+#CHAINDATA_ROOT=${CHAINDATA_ROOT:-"$(pwd)/data-$ENODE_NAME"}
+CHAINDATA_ROOT="$(pwd)/data-$ENODE_NAME"
+CODE_ROOT="$(pwd)/ethereum-tools"
 
+echo "Enode Name is $ENODE_NAME"
+echo "Code root in $CODE_ROOT"
 echo "Chain Data in $CHAINDATA_ROOT"
+
+if [ ! -f $CODE_ROOT/files/genesis.json ]; then
+    echo "No files/genesis.json file in ${CODE_ROOT} found Aborting."
+    exit
+fi
 
 docker run --rm \
   -v $CHAINDATA_ROOT:/root/.ethereum \
-  -v $(pwd)/files/genesis.json:/opt/genesis.json \
-  ethereum/client-go init /opt/genesis.json --datadir /root/.ethereum -verbosity 5
+  -v $CODE_ROOT/files/genesis.json:/opt/genesis.json \
+  ethereum/client-go init /opt/genesis.json --datadir /root/.ethereumpwd
