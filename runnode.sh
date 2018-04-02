@@ -32,14 +32,15 @@ docker rm $CONTAINER_NAME
 
 docker run -d \
   -v $CHAINDATA_ROOT:/root/.ethereum \
-  -p 8546:8546 -p 30304:30304 \
+  -p 8545:8545 -p 30303:30303 \
+  --name $CONTAINER_NAME \
   ethereum/client-go --datadir /root/.ethereum \
   --networkid 2061 \
-  --port 30304 \
+  --port 30303 \
   --nodiscover \
   --rpc \
   --rpcaddr 0.0.0.0 \
-  --rpcport 8546 \
+  --rpcport 8545 \
   --mine --minerthreads 1 --gasprice "10000" \
   --etherbase $ETHERBASE \
   --verbosity 3
