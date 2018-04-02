@@ -21,6 +21,12 @@ docker exec -ti "$CONTAINER_NAME" geth --exec 'eth.hashrate' attach
 echo "eth.gasprice"
 docker exec -ti "$CONTAINER_NAME" geth --exec 'eth.gasprice' attach
 
+echo "eth.blockNumber"
+docker exec -ti "$CONTAINER_NAME" geth --exec 'eth.blockNumber' attach
+
+echo "eth.pendingTransactions"
+docker exec -ti "$CONTAINER_NAME" geth --exec 'eth.pendingTransactions' attach
+
 echo "eth.coinbase"
 docker exec -ti "$CONTAINER_NAME" geth --exec 'eth.coinbase' attach
 
