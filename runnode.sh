@@ -20,7 +20,7 @@ echo "Chain Data in $CHAINDATA_ROOT"
 echo "Container Name in $CONTAINER_NAME"
 echo "Etherbase is $ETHERBASE"
 
-echo "Stop and remove old container $CONTAINER_NAME..."
+echo "Stopping and removing old container $CONTAINER_NAME..."
 docker stop $CONTAINER_NAME
 docker rm $CONTAINER_NAME
 
