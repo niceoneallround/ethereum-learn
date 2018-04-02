@@ -2,13 +2,14 @@
 
 # Run an ethereum geth node - the node is also a miner
 
-if [ "$#" -ne 1 ]
+if [ "$#" -ne 2 ]
 then
-  echo "Usage: runnode enode_name"
+  echo "Usage: runnode enode_name etherbase"
   exit 1
 fi
 
 ENODE_NAME=$1
+ETHERBASE=$2
 CHAINDATA_ROOT="$(pwd)/$ENODE_NAME-data"
 CODE_ROOT="$(pwd)/ethereum-tools"
 CONTAINER_NAME="geth-$ENODE_NAME"
@@ -17,6 +18,7 @@ echo "Enode name is $ENODE_NAME"
 echo "Code root in $CODE_ROOT"
 echo "Chain Data in $CHAINDATA_ROOT"
 echo "Container Name in $CONTAINER_NAME"
+echo "Etherbase is $ETHERBASE"
 
 echo "Stop and remove old container $CONTAINER_NAME..."
 docker stop $CONTAINER_NAME
@@ -39,4 +41,5 @@ docker run \
   --rpcaddr 0.0.0.0 \
   --rpcport 8505 \
   --mine --minerthreads 1 --gasprice "10000" \
+  --etherbase $ETHERBASE
   --verbosity 3
