@@ -9,12 +9,33 @@ Contains a set of tools that can be used to setup an Ethereum Network
   bash ethereum-tools/initnode.sh enode1
 
   # create an account
-  bash ethereum-tools/createaccount.sh
+  bash ethereum-tools/createaccount.sh enode1
 
-  # run node
-  bash ethereum-tools/runnode.sh enode1 "0x0188e5f8142202bd3b422dfca7fe02ebe7a93d81"
+  # run node node_name etherbase_account
+  bash ethereum-tools/runnode.sh enode1 "0xa8341698f294a25c92503156767d746775594ca6"
+
+  # stop node
+  bash ethereum-tools/stopnode.sh enode1
+
+  # show accounts
+  bash ethereum-tools/showaccounts.sh enode1
 ```
 
+
+Running   bash ethereum-tools/createaccount.sh enode1
+```
+bash ethereum-tools/createaccount.sh enode1
+Enode name is enode1
+Code root in /home/ec2-user/ethereum-tools
+Chain Data in /home/ec2-user/enode1-data
+INFO [04-02|18:54:13] Maximum peer count                       ETH=25 LES=0 total=25
+Your new account is locked with a password. Please give a password. Do not forget this password.
+!! Unsupported terminal, password will be echoed.
+Passphrase:
+Repeat passphrase:
+
+Address: {a8341698f294a25c92503156767d746775594ca6}
+```
 
 
 NODE1
@@ -36,3 +57,15 @@ INFO [04-02|18:20:03] HTTP endpoint opened                     url=http://0.0.0.
 INFO [04-02|18:20:03] Transaction pool price threshold updated price=10000
 INFO [04-02|18:20:03] Starting mining operation
 INFO [04-02|18:20:03] Commit new mining work                   number=1 txs=0 uncles=0 elapsed=73.638µs
+
+bash ethereum-tools/createaccount.sh enode1
+Enode name is enode1
+Code root in /home/ec2-user/ethereum-tools
+Chain Data in /home/ec2-user/enode1-data
+INFO [04-02|18:54:13] Maximum peer count                       ETH=25 LES=0 total=25
+Your new account is locked with a password. Please give a password. Do not forget this password.
+!! Unsupported terminal, password will be echoed.
+Passphrase:
+Repeat passphrase:
+
+Address: {a8341698f294a25c92503156767d746775594ca6}
