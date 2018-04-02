@@ -3,8 +3,6 @@
 # Initialize the nodes chain data using the genesis file
 
 ENODE_NAME=$1
-#CHAINDATA_ROOT=${CHAINDATA_ROOT:-"$(pwd)/ethereum-$ENODE_NAME"}
-#CODE_ROOT=${CODE_ROOT:-"$(pwd)/ethereum-tools"}
 CHAINDATA_ROOT="$(pwd)/$ENODE_NAME-data"
 CODE_ROOT="$(pwd)/ethereum-tools"
 
