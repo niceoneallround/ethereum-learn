@@ -11,7 +11,7 @@ echo "Enode name is $ENODE_NAME"
 echo "Container Name in $CONTAINER_NAME"
 
 echo "net.peerCount"
-docker exec -ti "$CONTAINER_NAME" geth --exec 'admin.peerCount' attach
+docker exec -ti "$CONTAINER_NAME" geth --exec 'net.peerCount' attach
 
 echo "admin.peers"
 docker exec -ti "$CONTAINER_NAME" geth --exec 'admin.peers' attach
