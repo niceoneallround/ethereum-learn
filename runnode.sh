@@ -2,6 +2,12 @@
 
 # Run an ethereum geth node - the node is also a miner
 
+if [ "$#" -ne 1 ]
+then
+  echo "Usage: runnode enode_name"
+  exit 1
+fi
+
 ENODE_NAME=$1
 CHAINDATA_ROOT="$(pwd)/$ENODE_NAME-data"
 CODE_ROOT="$(pwd)/ethereum-tools"
@@ -19,7 +25,7 @@ docker rm $CONTAINER_NAME
 
 # QUESTIIONS
 # docker flag   --network ethereum
-#   --etherbase 0xf628e41f3ca68341e9857102d4b3040aa418d763 \
+#   --etherbase 0x0188e5f8142202bd3b422dfca7fe02ebe7a93d81 \
 
 
 docker run \
